@@ -7,40 +7,27 @@ import SuggestedTitles from './SuggestedTitles';
 import {Routes, Route} from "react-router-dom"
 
 
-
 export default function Dashboard() {
-  return (
-    <div>
+    return (
+        <div>
 
-      
+            <JobTitles/>
 
+            <SuggestedJobs/>
 
+            <SuggestedTitles/>
 
-      <JobTitles />
+            <FastSearch/>
 
-      <SuggestedJobs />
+            {/* <JobList /> */}
 
-      <SuggestedTitles />
+            <Routes>
 
+                <Route path="/" element={<JobList/>}/>
 
-      <FastSearch />
-
-      {/* <JobList /> */}
-
-      <Routes>
-
+            </Routes>
 
 
-
-
-
-
-
-    <Route path = "/" element = {<JobList/>} />
-      
-      </Routes>
-
-
-    </div>
-  )
+        </div>
+    )
 }
