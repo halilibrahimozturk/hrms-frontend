@@ -6,6 +6,7 @@ import JobList from '../pages/JobList'
 import SuggestedTitles from './SuggestedTitles';
 import {Routes, Route} from "react-router-dom"
 import JobDetail from '../pages/JobDetail';
+import AppliedJobs from '../pages/AppliedJobs';
 
 
 
@@ -32,9 +33,10 @@ export default function Dashboard() {
     
 
 
-    <Route path = "/" element = {<JobList/>} />
-    <Route path = "/jobs" element = {<JobList/>} />
+    <Route exact path = "/" element = {<JobList/>} />
+    <Route exact path = "/jobs" element = {<JobList/>} />
     <Route path = "/jobs/:id" element = {<JobDetail/>} />
+    <Route  path = "/appliedJobs" element = {<AppliedJobs/>} />
 
       
       </Routes>

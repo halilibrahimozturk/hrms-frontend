@@ -1,20 +1,22 @@
-import React , {useState} from 'react'
-import Languages from "./Languages"
+import React, { useState } from 'react'
+import Profile from "./Profile"
 import { Button, Container, Menu } from 'semantic-ui-react'
-import {  Image } from 'semantic-ui-react'
+import { Image } from 'semantic-ui-react'
 import SignedOut from './SignedOut'
 import SignedIn from './SignedIn'
+import { NavLink } from 'react-router-dom'
+import {Dropdown } from 'semantic-ui-react'
 
 export default function Navi() {
     const [isAuthenticated, setIsAuthenticated] = useState(true)
 
-    function handleSignOut(params){
+    function handleSignOut(params) {
 
         setIsAuthenticated(false)
 
     }
 
-    function handleSignIn(params){
+    function handleSignIn(params) {
 
         setIsAuthenticated(true)
 
@@ -29,7 +31,7 @@ export default function Navi() {
                     <Menu.Item>
 
 
-                        <Image src='https://aday-asset.mncdn.com/img/kariyernet_new_logo.png' size='small' />
+                        <Image src='https://aday-asset.mncdn.com/img/kariyernet_new_logo.png' size='small' as= {NavLink} to ="" />
 
 
 
@@ -46,7 +48,16 @@ export default function Navi() {
                     // active={activeItem === 'İş ara'}
                     // onClick={this.handleItemClick}
                     />
+
+                    <Menu.Item>
+
+                        <Profile>
+
+                        </Profile>
+                    </Menu.Item>
                     <Menu.Item
+
+
                         name='Jobtitles Guide'
                     // active={activeItem === 'messages'}
                     // onClick={this.handleItemClick}
@@ -58,12 +69,10 @@ export default function Navi() {
                             Başvurulan İşler
                         </Menu.Item> */}
 
-                        <Languages>
-
-                        </Languages>
 
 
-                     
+
+
 
 
                         <Menu.Item>
@@ -83,7 +92,7 @@ export default function Navi() {
 
                         <Menu.Item>
 
-                        {isAuthenticated?<SignedIn signOut = {handleSignOut}/>:<SignedOut signIn = {handleSignIn}/> }
+                            {isAuthenticated ? <SignedIn signOut={handleSignOut} /> : <SignedOut signIn={handleSignIn} />}
 
 
                         </Menu.Item>
