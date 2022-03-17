@@ -1,6 +1,11 @@
-import React, { useState , useEffect } from 'react'
-import { Icon,  Menu, Table } from 'semantic-ui-react'
+import React, { useState, useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { Link } from 'react-router-dom'
+import { Button, Icon, Menu, Table } from 'semantic-ui-react'
 import JobService from '../services/jobService'
+import { addToApplication } from '../store/actions/applicationActions'
+
+
 export default function JobList() {
 
     // const colors = [
@@ -19,25 +24,31 @@ export default function JobList() {
     //     'black',
     // ]
 
+    const dispatch = useDispatch()
     const [jobs, setJobs] = useState([])
 
-    useEffect(()=>{
-            let jobService = new JobService()
-            jobService.getJobs().then(result=>setJobs(result.data.data))
+    useEffect(() => {
+        let jobService = new JobService()
+        jobService.getJobs().then(result => setJobs(result.data.data))
 
-            
-        
-    },[])
+
+
+    }, [])
+
+
+
+
+
+    const handleAddtoApplication = (job) => {
+
+        dispatch(addToApplication(job))
+    }
+
+
+
+
     return (
         <div>
-
-
-
-
-
-
-
-
             {/* {colors.map((color) => ( */}
             <Table celled
             // padded color={color} key={color}
@@ -52,6 +63,8 @@ export default function JobList() {
                         <Table.HeaderCell>City</Table.HeaderCell>
                         <Table.HeaderCell>Application Deadline</Table.HeaderCell>
                         <Table.HeaderCell>Released Date</Table.HeaderCell>
+                        <Table.HeaderCell></Table.HeaderCell>
+
 
                     </Table.Row>
                 </Table.Header>
@@ -60,14 +73,19 @@ export default function JobList() {
                     {
 
                         jobs.map(job => (
-                            <Table.Row key ={job.id}>
+                            <Table.Row key={job.id}>
 
                                 <Table.Cell>Picture</Table.Cell>
                                 <Table.Cell>{job.employer.companyName}</Table.Cell>
-                                <Table.Cell>{job.name}</Table.Cell>
+                                <Table.Cell><Link to={`/jobs/${job.id}`}>{job.name}</Link></Table.Cell>
                                 <Table.Cell>{job.city.name}</Table.Cell>
                                 <Table.Cell>{job.applicationDeadline}</Table.Cell>
                                 <Table.Cell>{job.releaseDate}</Table.Cell>
+                                <Table.Cell><Button onClick={()=>handleAddtoApplication(job)}>
+                                    Apply for Job
+                                    
+                                </Button></Table.Cell>
+
                             </Table.Row>
                         ))
                     }

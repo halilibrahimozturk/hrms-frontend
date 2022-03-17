@@ -5,15 +5,18 @@ import { Image } from 'semantic-ui-react'
 import SignedOut from './SignedOut'
 import SignedIn from './SignedIn'
 import { NavLink } from 'react-router-dom'
-import {Dropdown } from 'semantic-ui-react'
+import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux'
 
 export default function Navi() {
     const [isAuthenticated, setIsAuthenticated] = useState(true)
+    const { applicationItems } = useSelector(state => state.application)
 
+    const navigate = useNavigate();
     function handleSignOut(params) {
 
         setIsAuthenticated(false)
-
+        navigate("/")
     }
 
     function handleSignIn(params) {
@@ -25,13 +28,13 @@ export default function Navi() {
 
     return (
         <div>
-            <Menu fixed>
+            <Menu inverted fixed="top">
                 <Container>
 
                     <Menu.Item>
 
 
-                        <Image src='https://aday-asset.mncdn.com/img/kariyernet_new_logo.png' size='small' as= {NavLink} to ="" />
+                        <Image src='https://aday-asset.mncdn.com/img/kariyernet_new_logo.png' size='small' as={NavLink} to="" />
 
 
 
@@ -51,9 +54,9 @@ export default function Navi() {
 
                     <Menu.Item>
 
-                        <Profile>
+                        {applicationItems.length>0&&<Profile>
 
-                        </Profile>
+                        </Profile>}
                     </Menu.Item>
                     <Menu.Item
 

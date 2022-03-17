@@ -5,4 +5,9 @@ export default class JobService{
         return axios.get("http://localhost:8080/api/jobs/getAll")
     }
 
+    getJobsById(id){
+        return axios.get("http://localhost:8080/api/jobs/getById?id="+id)
+    }
+
+
 }

@@ -13,11 +13,6 @@ import AppliedJobs from '../pages/AppliedJobs';
 export default function Dashboard() {
   return (
     <div>
-
-      
-
-
-
       <JobTitles />
 
       <SuggestedJobs />

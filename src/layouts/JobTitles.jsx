@@ -14,17 +14,10 @@ export default function JobTitles() {
                 <input />
                 <Select compact options={options} defaultValue='articles' />
                 <Button type='submit'>Find a job...
-                
 
-
-                
-                <Icon.Group size>
-    <Icon size name='search' />
-  </Icon.Group>
-
-
-
-
+                    <Icon.Group size='small'>
+                        <Icon size='small' name='search' />
+                    </Icon.Group>
 
                 </Button>
             </Input>
