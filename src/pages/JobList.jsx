@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { Button, Icon, Menu, Table } from 'semantic-ui-react'
 import JobService from '../services/jobService'
 import { addToApplication } from '../store/actions/applicationActions'
-
+import { toast } from 'react-toastify'
 
 export default function JobList() {
 
@@ -42,6 +42,20 @@ export default function JobList() {
     const handleAddtoApplication = (job) => {
 
         dispatch(addToApplication(job))
+       
+        toast.success('Job Application Successful!', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            });
+
+
+
+
     }
 
 
@@ -49,6 +63,8 @@ export default function JobList() {
 
     return (
         <div>
+
+            
             {/* {colors.map((color) => ( */}
             <Table celled
             // padded color={color} key={color}

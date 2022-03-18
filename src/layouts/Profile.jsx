@@ -8,15 +8,15 @@ export default function Profile() {
     const { applicationItems } = useSelector(state => state.application)
     return (
         <div>
-            <Dropdown item text='Profile'>
+            <Dropdown item text='Applicated Jobs'>
                 <Dropdown.Menu>
 
                     {
 
                         applicationItems.map((applicationItem) => (
-                            <Dropdown.Item as={NavLink} to="appliedJobs">
+                            <Dropdown.Item as={NavLink} to="appliedJobs" key={applicationItem.job.id} >
 
-                                {applicationItem.job.id}
+                                {applicationItem.job.name}
 
                                 <Label>
 
@@ -29,10 +29,10 @@ export default function Profile() {
                         ))
                     }
 
-                    <Dropdown.Item as={NavLink} to="appliedJobs">Applications</Dropdown.Item>
+                    {/* <Dropdown.Item as={NavLink} to="appliedJobs">Applications</Dropdown.Item>
                     <Dropdown.Item as={NavLink} to="appliedJobs">Cover Letters</Dropdown.Item>
                     <Dropdown.Item as={NavLink} to="appliedJobs">Inbox</Dropdown.Item>
-                    <Dropdown.Item as={NavLink} to="appliedJobs" >Settings</Dropdown.Item>
+                    <Dropdown.Item as={NavLink} to="appliedJobs" >Settings</Dropdown.Item> */}
 
                 </Dropdown.Menu>
             </Dropdown>

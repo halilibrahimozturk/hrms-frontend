@@ -28,7 +28,7 @@ export default function Navi() {
 
     return (
         <div>
-            <Menu inverted fixed="top">
+            <Menu  fixed="top">
                 <Container>
 
                     <Menu.Item>

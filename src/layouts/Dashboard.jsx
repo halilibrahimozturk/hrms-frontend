@@ -7,12 +7,28 @@ import SuggestedTitles from './SuggestedTitles';
 import {Routes, Route} from "react-router-dom"
 import JobDetail from '../pages/JobDetail';
 import AppliedJobs from '../pages/AppliedJobs';
-
+import { ToastContainer } from 'react-toastify';
 
 
 export default function Dashboard() {
   return (
+
+  
     <div>
+
+<ToastContainer
+position="top-center"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+/>
+
+
       <JobTitles />
 
       <SuggestedJobs />
@@ -24,6 +40,7 @@ export default function Dashboard() {
 
       {/* <JobList /> */}
 
+   
       <Routes>
     
 
